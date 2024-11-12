@@ -1,3 +1,7 @@
+javascript:document.body.contentEditable = 'true'; document.designMode='on'; void 0
+
+
+
 Here’s a breakdown of how to approach creating this scene in Unity:
 
 1. Create the “Game” Scene and Set Up the Tank
