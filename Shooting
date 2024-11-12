@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class TankShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;     // 子彈Prefab的參考
-    public Transform bulletSpawnPoint;  // 子彈發射的起始位置
-    public float bulletSpeed = 20f;     // 子彈的速度
+    public GameObject bulletPrefab; 
+    public Transform bulletSpawnPoint; 
+    public float bulletSpeed = 20f;   
 
     void Update()
     {
-        // 檢查滑鼠左鍵是否被按下
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -17,14 +16,8 @@ public class TankShooting : MonoBehaviour
 
     void Shoot()
     {
-        // 在發射點的位置和方向上實例化子彈
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-
-        // 獲取子彈的Rigidbody組件並賦予其速度
         Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
         bulletRigidbody.velocity = bulletSpawnPoint.forward * bulletSpeed;
-
-        // 在幾秒後銷毀子彈，以防止過多子彈產生的內存佔用
-        Destroy(bullet, 5f);
     }
 }
